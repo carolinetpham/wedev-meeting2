@@ -7,18 +7,28 @@
 
 import SwiftUI
 
+@Observable
+class Counter {
+    var count = 0
+    
+    func increment() {
+        count += 1
+    }
+}
+
+
 struct ContentView: View {
+    @Bindable var counter: Counter
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Count: \(counter.count)")
+            Button("Increment") {
+                counter.increment()
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(counter: Counter())
 }

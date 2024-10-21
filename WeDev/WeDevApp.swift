@@ -11,7 +11,7 @@ import SwiftUI
 struct WeDevApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(counter: Counter())
         }
     }
 }
